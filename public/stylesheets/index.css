@@ -1,0 +1,90 @@
+.page-body {
+    background: url("../images/index-bg.jpg") no-repeat center / cover;
+    display: flex;
+    padding: 0 12.5%;
+    justify-content: space-between;
+}
+
+.pbt-header {
+    position: relative;
+    padding: 70px 0 30px 0px;
+    min-width: 226px;
+    background-image: -webkit-linear-gradient(top, #fff, #ccc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "MB_HYZS", "DaimlerCA-Regular", "SimSun", "STSong", serif;
+    font-size: 45px;
+    line-height: 1em;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.pbt-header::after {
+    content: "";
+    position: absolute;
+    width: 72.85px;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    right: unset;
+    top: unset;
+    background-color: #fff;
+}
+
+.pbt-ft {
+    margin-top: 32px;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "SimHei", Helvetica, Arial;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: rgba(255, 255, 255, 0.66);
+}
+
+.page-body-content {
+    margin-top: 70px;
+}
+
+.pbc-input {
+    display: block;
+    height: 30px;
+    width: 380px;
+    margin-bottom: 30px;
+    padding-left: 0;
+    /* -webkit-appearance: none; */
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1em;
+    font-weight: normal;
+}
+
+.pbc-input::placeholder{
+    color: #ffffff8d;
+}
+
+.pbc-button{
+    margin: 30px 0;
+    width: 380px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    border: 1.4px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pbc-input:focus{
+    border-bottom: 1px solid #00adef;
+}
+
+.pbc-button:hover{
+    border: 1px solid #00adef;
+}

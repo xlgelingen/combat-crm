@@ -1,0 +1,10 @@
+.form-input, .form-button{
+    width: 100%;
+}
+
+.form-section,.log-section{
+    flex: 1;
+    padding: 0 20px;
+    border-radius: 5px;
+    background-color: #e4e4e4;
+}

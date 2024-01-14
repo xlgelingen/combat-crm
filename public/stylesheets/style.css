@@ -1,8 +1,106 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px PingFangSC, Avenir, Helvetica, Microsoft YaHei, 微软雅黑, Arial, sans-serif, Lucida Grande, Helvetica, Arial, sans-serif;
+  height:100vh;
 }
 
-a {
-  color: #00B7FF;
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 1366px;
+  padding: 10px 7% 10px 7%;
+  background: #000;
+}
+
+.header-logo-container {
+  margin-top: 6px;
+  font-size: 0;
+}
+
+.header-logo {
+  width: 260px;
+  height: 64px;
+}
+
+.page-body {
+  flex: 1;
+  width: 100%;
+  min-width: 1366px;
+}
+
+.page-footer {
+  width: 100%;
+  min-width: 1366px;
+  font-size: 12px;
+  background: #000;
+  min-height: 106px;
+  padding: 10px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  flex: 1;
+}
+
+.footer-social {
+  width: 400px;
+}
+
+.footer-links-container {
+  display: flex;
+}
+
+.container-group1 {
+  padding-bottom: 12px;
+}
+
+.footer-links-item {
+  position: relative;
+  padding-right: 2em;
+  color: #bfbfbf;
+  font: normal 400 12px/2 Arial, sans-serif;
+}
+
+.fli-group1:after {
+  position: absolute;
+  top: 0.6em;
+  height: calc(100% - 1.2em);
+  right: 1em;
+  content: "";
+  width: 0;
+  border-left: 1px solid #666;
+}
+
+.footer-social-container {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -5vw;
+}
+
+.footer-social-item {
+  display: flex;
+  flex: 0 0 33.3333%;
+  padding: 8px 0;
+  position: relative;
+  color: #bfbfbf;
+}
+
+.fsi-image {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.fsi-label{
+  height: 20px;
+  line-height: 20px;
 }
