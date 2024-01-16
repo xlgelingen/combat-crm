@@ -1,33 +1,25 @@
 var express = require('express');
 var router = express.Router();
+var userController = require('../controllers/user');
+var clueController = require('../controllers/clue');
+var authController = require('../controllers/auth');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login');
-});
+router.get('/login', authController.renderLogin);
+router.get('/logout', authController.logout);
 
-router.get('/admin/user', function(req, res, next) {
-  res.render('admin/user');
-});
+router.get('/admin/user', userController.showAll);
 
-router.get('/admin/user/create', function(req, res, next) {
-  res.render('admin/user_create');
-});
+router.get('/admin/user/create', userController.renderCreate);
 
-router.get('/admin/user/:id/edit', function(req, res, next) {
-  res.render('admin/user_edit');
-});
+router.get('/admin/user/:id/edit', userController.renderEdit);
 
-router.get('/admin/clue', function(req, res, next) {
-  res.render('admin/clue');
-});
+router.get('/admin/clue', clueController.showAll);
 
-router.get('/admin/clue/:id', function(req, res, next) {
-  res.render('admin/clue_log');
-});
+router.get('/admin/clue/:id', clueController.renderLog);
 
 module.exports = router;

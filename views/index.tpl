@@ -25,5 +25,10 @@
   </div>
 {% endblock %}
 
+{% block js %}
+<script src="/javascripts/jquery-3.3.1.min.js"></script>
+<script src="/javascripts/index.js"></script>
+{% endblock %}
+
 
 

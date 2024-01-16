@@ -15,39 +15,27 @@
             <tr>
                 <th>姓名</th>
                 <th>电话</th>
+                <th>密码</th>
                 <th>角色</th>
                 <th>创建时间</th>
                 <th>操作</th>
-                </trs>
-            <tr>
-                <td>赵倩</td>
-                <td>13511111111</td>
-                <td>管理员</td>
-                <td>2024.01.14</td>
-                <td><a class="user-edit" href="/admin/user/1/edit">编辑</a></td>
             </tr>
-            <tr>
-                <td>孙立</td>
-                <td>13522222222</td>
-                <td>管理员</td>
-                <td>2024.01.14</td>
-                <td><a class="user-edit" href="/admin/user/2/edit">编辑</a></td>
+            {% for user in users %}
+            <tr class="table-user">
+                <td>{{user.name}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.roleName}}</td>
+                <td>{{user.create_time}}</td>
+                <td><a class="user-edit" data-id="{{user.id}}" href="/admin/user/{{user.id}}/edit">编辑</a></td>
             </tr>
-            <tr>
-                <td>季梦梦</td>
-                <td>13533333333</td>
-                <td>销售</td>
-                <td>2024.01.14</td>
-                <td><a class="user-edit" href="/admin/user/3/edit">编辑</a></td>
-            </tr>
-            <tr>
-                <td>王晨晨</td>
-                <td>13533333333</td>
-                <td>销售</td>
-                <td>2024.01.14</td>
-                <td><a class="user-edit" href="/admin/user/3/edit">编辑</a></td>
-            </tr>
+            {% endfor %}
         </table>
     </div>
 {% endblock %} 
+
+{% block js %}
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/javascripts/user.js"></script>
+{% endblock %}
 

@@ -7,8 +7,8 @@
 
 {% block page_header %}
     <div class="header-right">
-        <div class="header-right-username">林夕</div>
-        <div class="header-right-logout">退出</div>
+        <div class="header-right-username">{{userInfo.name}}</div>
+        <a class="header-right-logout" id="logout-button" href="/logout">退出</a>
     </div>
 {% endblock %}
 
@@ -17,10 +17,10 @@
         <nav class="page-nav">
             <ul>
                 <li>
-                    <a class="page-nav-item" href="/admin/user">用户管理</a>
+                    <a class="page-nav-item user-control" href="/admin/user">用户管理</a>
                 </li>
                 <li>
-                    <a class="page-nav-item" href="/admin/clue">线索管理</a>
+                    <a class="page-nav-item clue-control" href="/admin/clue">线索管理</a>
                 </li>
             </ul>
         </nav>
@@ -31,4 +31,3 @@
           {% endblock %}        
     </div>
 {% endblock %}
-

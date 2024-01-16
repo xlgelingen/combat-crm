@@ -15,36 +15,29 @@
       <th>创建时间</th>
       <th>跟踪销售</th>
       <th>状态</th>
+      <th>备注</th>
       <th>操作</th>
-    </trs>
-    <tr>
-      <td>顾一</td>
-      <td>13511111111</td>
-      <td>baidu_search</td>
-      <td>2024.01.14</td>
-      <td>季梦</td>
-      <td>意向强烈</td>
-      <td><a class="user-edit" href="/admin/clue/1">跟踪</a></td>
     </tr>
-    <tr>
-      <td>赵二</td>
-      <td>13522222222</td>
-      <td>baidu_search</td>
-      <td>2024.01.14</td>
-      <td>季梦梦</td>
-      <td>意向强烈</td>
-      <td><a class="user-edit" href="/admin/clue/1">跟踪</a></td>
+
+    {% for clue in clues %}
+    <tr class="table-clue">
+        <td>{{clue.name}}</td>
+        <td>{{clue.phone}}</td>
+        <td>{{clue.utm}}</td>
+        <td>{{clue.create_time}}</td>
+        <td>{{clue.sale_name}}</td>
+        <td>{{clue.statusName}}</td>
+        <td>{{clue.remark}}</td>
+        <td><a class="user-edit" data-id="{{clue.id}}" href="/admin/clue/{{clue.id}}">跟踪</a></td>
     </tr>
-    <tr>
-      <td>苏三</td>
-      <td>13533333333</td>
-      <td>baidu_search</td>
-      <td>2024.01.14</td>
-      <td>王晨晨</td>
-      <td>意向强烈</td>
-      <td><a class="user-edit" href="/admin/clue/1">跟踪</a></td>
-    </tr>
+    {% endfor %}
+
   </table>
 </div>
 {% endblock %} 
+
+{% block js %}
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/javascripts/clue.js"></script>
+{% endblock %}
 

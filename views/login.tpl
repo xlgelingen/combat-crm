@@ -14,11 +14,15 @@
         <div class="pbc-title">
             MERCEDES-BENZ
         </div>
-        <input class="pbc-input" type="text" maxlength="11" name="mobilePhone" placeholder="请输入您的手机号"
-            data-error="请输入中国大陆手机号码（11位数字）" value="">
-        <input class="pbc-input" type="text" name="password" placeholder="请输入您的密码" data-error="请输入正确的密码（不能为空）" value="">
-        <button class="pbc-button" type="submit" name="submit">
+        <input class="pbc-input" id="input-phone" type="text" maxlength="11" name="mobilePhone" placeholder="请输入您的手机号">
+        <input class="pbc-input" id="input-password" type="text" name="password" placeholder="请输入您的密码(不少于8位)">
+        <button class="pbc-button" id="pbc-button" type="submit" name="submit">
             现在登陆
         </button>
     </div>
+{% endblock %}
+
+{% block js %}
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/javascripts/login.js"></script>
 {% endblock %}

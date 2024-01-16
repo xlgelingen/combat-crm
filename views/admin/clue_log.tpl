@@ -20,24 +20,25 @@
     <div class="content-mainer">
         <div class="form-section">
           <div class="form-item">
-            <span class="form-text">客户名称：周秀娜</span>
+            <span class="form-text">客户名称：{{clue.name}}</span>
           </div>
           <div class="form-item">
-            <span class="form-text">联系电话：1351231232</span>
+            <span class="form-text">联系电话：{{clue.phone}}</span>
           </div>
           <div class="form-item">
-            <span class="form-text">线索来源：baidu_search</span>
+            <span class="form-text">线索来源：{{clue.utm}}</span>
           </div>
           <div class="form-item">
-            <span class="form-text">创建时间：2019-4-1</span>
+            <span class="form-text">创建时间：{{clue.create_time}}</span>
           </div>
           <div class="form-item">
-            <span class="form-text">线索状态：意向强烈</span>
+            <span class="form-text">当前分配的销售：</span>
+            <input type="text" class="form-input" placeholder="姓名" value="{{clue.sale_name}}"/>
           </div>
           <div class="form-item">
             <span class="form-text">用户状态：</span>
             <select class="form-input">
-              <option value="0">请选择线索状态</option>
+              <option value="0" disabled selected>请选择线索状态</option>
               <option value="1">没有意向</option>
               <option value="2">意向一般</option>
               <option value="3">意向强烈</option>
@@ -46,17 +47,18 @@
             </select>
           </div>
           <div class="form-item">
-            <span class="form-text">当前分配的销售：</span>
-            <input type="text" class="form-input" placeholder="姓名"/>
-          </div>
-          <div class="form-item">
             <p class="form-text">备注：</p>
-            <textarea class="form-textarea" placeholder="备注信息"></textarea>
+            <textarea class="form-textarea" placeholder="备注信息" >{{clue.remark}}</textarea>
           </div>
           <div class="form-item">
             <button class="form-button">保存</button>
           </div>
         </div>
+
+        {% block js %}
+        <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/javascripts/clue_log.js"></script>
+        {% endblock %}
 
         <div class="log-section">
           <ul class="log-list">
