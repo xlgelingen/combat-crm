@@ -4,11 +4,6 @@ const moment = require('moment');
 
 const user = {
     showAll: async function (req, res, next) {
-        if(!res.locals.isLogin){
-            res.redirect('/login');
-            return;
-        }
-
         const users = await User.all();
         try {
             res.locals.users = users.map((data) => {
@@ -32,10 +27,6 @@ const user = {
     },
 
     renderEdit: async function (req, res, next) {
-        if(!res.locals.isLogin){
-            res.redirect('/login');
-            return;
-        }
         try {
             var id = req.params.id;
             const user = await User.select({id});
@@ -49,10 +40,6 @@ const user = {
     },
 
     renderCreate: function (req, res, next) {
-        if(!res.locals.isLogin){
-            res.redirect('/login');
-            return;
-        }
         res.render('admin/user_create', res.locals);
     },
 

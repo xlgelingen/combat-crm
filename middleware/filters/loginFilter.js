@@ -14,7 +14,8 @@ module.exports=function(req,res,next){
                     id: decode.user_id, 
                     name: decode.user_name, 
                     phone: decode.user_phone, 
-                    password: decode.user_password
+                    password: decode.user_password,
+                    role: decode.user_role
                 }
                 next();
             }else{

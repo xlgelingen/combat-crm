@@ -4,11 +4,14 @@ const moment = require('moment');
 
 const clue = {
     showAll: async function (req, res, next) {
-        if(!res.locals.isLogin){
-            res.redirect('/login');
-            return;
+        var sale_name = res.locals.userInfo.name;
+        var role = res.locals.userInfo.role;
+        var clues = null;
+        if(role == 1){
+            clues = await Clue.all();
+        }else if(role == 2){
+            clues = await Clue.select({sale_name});
         }
-        const clues = await Clue.all();
         try {
             res.locals.clues = clues.map((data) => {
                 switch (data.status) {
@@ -39,24 +42,6 @@ const clue = {
         }
     },
 
-    renderLog: async function (req, res, next) {
-        if(!res.locals.isLogin){
-            res.redirect('/login');
-            return;
-        }
-        try {
-            var id = req.params.id;
-            const clue = await Clue.select({id});
-            clue[0].create_time = moment(clue[0].create_time).format('YYYY-MM-DD HH:mm:ss')
-            res.locals.clue = clue[0];
-            res.render('admin/clue_log', res.locals);
-        } catch (e) {
-            res.locals.error = e;
-            res.render('error.tpl', res.locals);
-        }
-
-    },
-
     insert: async function (req, res, next) {
         let name = req.body.name;
         let phone = req.body.phone;
@@ -70,6 +55,23 @@ const clue = {
             res.json({ code: 200, data: clue });
         } catch (e) {
             res.json({ code: 0, data: e });
+        }
+    },
+
+    update: async function (req, res, next) {
+        let sale_name = req.body.sale_name;
+        let status = req.body.status;
+        let remark = req.body.remark;
+        let id = req.body.id;
+        if(!sale_name || !status || !remark || !id){
+            res.json({ code: 0, data: 'params empty!' });
+            return
+          }
+        try {
+            const log = await Clue.update(id, {sale_name, status, remark});
+            res.json({code:200, data:log});
+        } catch (e) {
+            res.json({code:0, data:e});
         }
     },
 

@@ -6,28 +6,62 @@ const PAGE = {
         let title = $('.clue-control');
         title.addClass('active');
 
-        let button = $('#form-button');
-        button.on('click', this.addUser);
+        let saveButton = $('#save-button');
+        saveButton.on('click', this.editClueLog);
+
+        let addButton = $('#add-button');
+        addButton.on('click', this.addClueLog);
     },
 
-    addUser: function (e) {
-        let name = $('#input-name').val();
-        let phone = $('#input-phone').val();
-        let password = $('#input-password').val();
-        let role = $('#input-role').val();
-        console.log(name, phone, password, role);
-        if (!name || !phone || !password || !role) {
+    editClueLog: function (e) {
+        let id = $(e.target).data("id");
+        let sale_name = $('#input-sale').val() || $('#clue-sale_name').text();
+        let status = $('#input-status').val();
+        let remark = $('#input-remark').val();
+        
+        if (!sale_name || !status || !remark) {
             alert('缺少必要信息');
             return
         }
-        console.log(name, phone, password, role)
 
         $.ajax({
-            url: '/api/user/create',
-            data: { name, phone, password, role },
+            url: '/api/clue_log',
+            data: { id, sale_name, status, remark},
+            type: 'PUT',
+            beforeSend: function() {
+                $("#save-button").attr("disabled",true);
+            },
+            success: function (data) {
+                if (data.code === 200) {
+                    alert('修改成功！');
+                    location.reload();
+                } else {
+                    console.log(data);
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            },
+            complete: function () {
+                $("#save-button").attr("disabled", false);
+            }
+        })
+    },
+
+    addClueLog: function (e) {
+        let content = $('#input-log').val();
+        let cule_id = $(e.target).data("id");
+        if (!content || !cule_id) {
+            alert('缺少必要信息');
+            return
+        }
+
+        $.ajax({
+            url: '/api/clue_log',
+            data: { content, cule_id },
             type: 'POST',
             beforeSend: function() {
-                $("#form-button").attr("disabled",true);
+                $("#add-button").attr("disabled",true);
             },
             success: function (data) {
                 if (data.code === 200) {
@@ -39,6 +73,9 @@ const PAGE = {
             },
             error: function (err) {
                 console.log(err);
+            },
+            complete: function () {
+                $("#add-button").attr("disabled", false);
             }
         })
     }

@@ -3,7 +3,7 @@ const User = new UserModel();
 var jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const auth = {
+const login = {
     login: async function (req, res, next) {
         let phone = req.body.phone;
         let password = req.body.password;
@@ -17,7 +17,7 @@ const auth = {
             let userArr = await User.select({ phone, password })
             let user = userArr[0];
             if (user) {
-                var token = jwt.sign({ user_id: user.id, user_name: user.name, user_phone: user.phone, user_password: user.password }, JWT_SECRET, { expiresIn: "30d" });
+                var token = jwt.sign({ user_id: user.id, user_name: user.name, user_phone: user.phone, user_password: user.password, user_role: user.role }, JWT_SECRET, { expiresIn: "30d" });
                 res.cookie('web_token', token, { maxAge: 60 * 24 * 60 * 60 });
                 res.json({ code: 200, data: token })
             } else {
@@ -30,7 +30,12 @@ const auth = {
 
     renderLogin: async function (req, res, next) {
         if (res.locals.isLogin) {
-            res.redirect('/admin/user');
+            var role = res.locals.userInfo.role;
+            if(role == 1){
+                res.redirect('/admin/user');
+            }else if(role == 2){
+                res.redirect('/admin/clue');
+            }
             return;
         }
         res.render('login.tpl', res.locals)
@@ -42,4 +47,4 @@ const auth = {
     }
 }
 
-module.exports = auth;
+module.exports = login;

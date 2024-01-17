@@ -7,6 +7,8 @@ var logger = require('morgan');
 var nunjucks = require('nunjucks');
 var favicon = require("serve-favicon")
 var filters = require("./middleware/filters/index");
+const cors = require('./middleware/cors.js');
+const { xss } = require('express-xss-sanitizer');
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
@@ -30,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname,"public/images/icon.png")))
 
 filters(app);
+app.use(cors.allowAll);
+app.use(xss());
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);

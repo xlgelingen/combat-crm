@@ -22,6 +22,11 @@ const PAGE = {
             return
         }
 
+        if(!utm){
+            alert('缺少utm,请换个网页试试');
+            return
+        }
+
         $.ajax({
             url: '/api/clue',
             data: { name, phone, utm },
