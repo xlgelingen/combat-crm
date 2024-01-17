@@ -12,14 +12,22 @@ CREATE TABLE `clue` (
   `name` varchar(225) DEFAULT NULL COMMENT '姓名',
   `phone` varchar(225) DEFAULT NULL COMMENT '电话',
   `utm` varchar(225) DEFAULT NULL COMMENT '来源',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `sale_name` varchar(225) DEFAULT NULL COMMENT '销售人员',
-  `created_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `status` int(11) DEFAULT NULL COMMENT '状态',
   `remark` varchar(225) DEFAULT NULL COMMENT '备注',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
-
+INSERT INTO `clue` (`id`, `name`, `phone`, `utm`, `create_time`, `sale_name`, `status`, `remark`) VALUES
+(1, '顾一', '13511111111', 'baidu_search', '2024-01-15 16:30:21', '季梦梦', 2, '备注1');
+INSERT INTO `clue` (`id`, `name`, `phone`, `utm`, `create_time`, `sale_name`, `status`, `remark`) VALUES
+(2, '季二', '13522222222', 'baidu_search', '2024-01-15 16:30:21', '季梦梦', 3, '备注2');
+INSERT INTO `clue` (`id`, `name`, `phone`, `utm`, `create_time`, `sale_name`, `status`, `remark`) VALUES
+(3, '苏三', '13533333333', 'baidu_search', '2024-01-15 16:32:46', '王晨晨', 1, '备注3');
+INSERT INTO `clue` (`id`, `name`, `phone`, `utm`, `create_time`, `sale_name`, `status`, `remark`) VALUES
+(4, '梦四', '13544444444', 'google', '2024-01-16 23:09:34', '曲筱筱', 3, '222'),
+(5, '武五', '13555555555', 'google', '2024-01-17 11:06:22', '曲筱筱', 4, '66666666');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

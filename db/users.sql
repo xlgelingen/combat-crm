@@ -13,12 +13,21 @@ CREATE TABLE `users` (
   `phone` varchar(225) DEFAULT '' COMMENT '电话',
   `password` varchar(225) DEFAULT '' COMMENT '密码',
   `role` int(11) DEFAULT NULL COMMENT '角色',
-  `created_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '创建时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `is_deleted` int(11) DEFAULT NULL COMMENT '是否删除',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
-
+INSERT INTO `users` (`id`, `name`, `phone`, `password`, `role`, `create_time`, `is_deleted`) VALUES
+(1, '赵倩', '13511111111', 'mm111111', 1, '2024-01-15 23:33:55', NULL);
+INSERT INTO `users` (`id`, `name`, `phone`, `password`, `role`, `create_time`, `is_deleted`) VALUES
+(2, '孙立', '13522222222', 'mm222222', 1, '2024-01-15 23:34:04', NULL);
+INSERT INTO `users` (`id`, `name`, `phone`, `password`, `role`, `create_time`, `is_deleted`) VALUES
+(3, '季梦梦', '13533333333', 'mm333333', 2, '2024-01-15 23:34:11', NULL);
+INSERT INTO `users` (`id`, `name`, `phone`, `password`, `role`, `create_time`, `is_deleted`) VALUES
+(4, '王晨晨', '13544444444', 'mm444444', 2, '2024-01-15 23:34:17', NULL),
+(5, '周武', '13555555555', 'mm555555', 1, '2024-01-16 14:45:26', NULL),
+(6, '曲筱筱', '13566666666', 'mm666666', 2, '2024-01-16 22:12:55', NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

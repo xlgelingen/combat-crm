@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../public/stylesheets/reset.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
     <!-- <link rel="stylesheet" href="../public/stylesheets/index.css"> -->
-    <!-- <link rel="stylesheet" href="../public/stylesheets/login.css"> -->
+    <!-- <link rel="stylesheet" href="../public/stylesheets/user.css"> -->
     <link rel="stylesheet" href="../public/stylesheets/user.css">
 
 </head>
@@ -25,35 +25,67 @@
         </div>
 
         <div class="page-body">
-            <!-- {% block content %} -->
-
-            <!-- <div class="page-body-title">
-                <div class="pbt-header">预约试驾</div>
-                <div class="pbt-ft">欢迎在线预约试驾。</div>
-            </div>
-            <div class="page-body-content">
-                <input class="pbc-input" type="text" name="familyName" placeholder="请输入您的姓氏" maxlength="20"
-                    minlength="1" data-error="请输入正确的姓名（汉字或字母）" data-limit-error="请输入20位以下的姓名" value="">
-                <input class="pbc-input" type="text" maxlength="11" name="mobilePhone" placeholder="请输入您的手机号"
-                    data-error="请输入中国大陆手机号码（11位数字）" value="">
-                <button class="pbc-button" type="submit" name="submit">
-                    即刻预约
-                </button>
-            </div> -->
-
-            <!-- <div class="page-body-content">
-                <div class="pbc-title">
-                    MERCEDES-BENZ
+            <div class="wrapper">
+                <header class="page-header">林熙</header>
+                <div class="page-body">
+                    <div class="page-aside">
+                        <nav class="page-nav">
+                            <ul>
+                                <li>
+                                    <a class="page-nav-item" href="/admin/user">人员管理</a>
+                                </li>
+                                <li>
+                                    <a class="page-nav-item" href="/admin/clue">线索管理</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="page-content">
+                        <div class="content-title">人员管理</div>
+                        <div class="content-control">
+                            <a href="/admin/user/create">新增人员 >></a>
+                        </div>
+                        <div class="content-table">
+                            <table class="table-container">
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>电话</th>
+                                    <th>角色</th>
+                                    <th>创建时间</th>
+                                    <th>操作</th>
+                                    </trs>
+                                <tr>
+                                    <td>周杰伦</td>
+                                    <td>13511111111</td>
+                                    <td>管理员</td>
+                                    <td>2019-4-1</td>
+                                    <td><a href="/admin/user/1/edit">编辑</a></td>
+                                </tr>
+                                <tr>
+                                    <td>李易峰</td>
+                                    <td>13522222222</td>
+                                    <td>管理员</td>
+                                    <td>2019-4-1</td>
+                                    <td><a href="/admin/user/2/edit">编辑</a></td>
+                                </tr>
+                                <tr>
+                                    <td>陈奕迅</td>
+                                    <td>13533333333</td>
+                                    <td>管理员</td>
+                                    <td>2019-4-1</td>
+                                    <td><a href="/admin/user/3/edit">编辑</a></td>
+                                </tr>
+                            </table>
+        
+                            <div class="table-pagination" id="table-pagination">
+                                <div class="pagination-index" id="pagination-index" data-index="{{pageInfo.index}}" hidden></div>
+                                <div class="pagination-item" id="pagination-item" data-index="1">1</div>
+                                <div class="pagination-item" id="pagination-item" data-index="2">2</div>
+                                <div class="pagination-item" id="pagination-item" data-index="3">3</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <input class="pbc-input" type="text" maxlength="11" name="mobilePhone" placeholder="请输入您的手机号"
-                    data-error="请输入中国大陆手机号码（11位数字）" value="">
-                <input class="pbc-input" type="text" name="password" placeholder="请输入您的密码" data-error="请输入正确的密码（不能为空）" value="">
-                <button class="pbc-button" type="submit" name="submit">
-                    现在登陆
-                </button>
-            </div> -->
-
-            <!-- {% endblock %} -->
         </div>
 
         <div class="page-footer">

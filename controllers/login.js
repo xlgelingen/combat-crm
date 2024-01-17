@@ -32,7 +32,7 @@ const login = {
         if (res.locals.isLogin) {
             var role = res.locals.userInfo.role;
             if(role == 1){
-                res.redirect('/admin/user');
+                res.redirect('/admin/user?page_index=1&page_size=20');
             }else if(role == 2){
                 res.redirect('/admin/clue');
             }

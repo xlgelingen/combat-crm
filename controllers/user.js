@@ -4,7 +4,15 @@ const moment = require('moment');
 
 const user = {
     showAll: async function (req, res, next) {
-        const users = await User.all();
+        var index = req.query.page_index;
+        var size = req.query.page_size;
+        var drift = (index-1)*size;
+        console.log(index,size,drift);
+
+        res.locals.pageInfo = {};
+        res.locals.pageInfo.index = index;
+        res.locals.pageInfo.size = size;
+        const users = await User.pagination(drift, size);
         try {
             res.locals.users = users.map((data) => {
                 switch (data.role) {

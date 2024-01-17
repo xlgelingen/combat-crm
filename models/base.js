@@ -1,11 +1,12 @@
-const knex = require('./knex');
+const config = require('./../knexfile.js');
+const knex = require('knex')(config);
 
 class Base {
   constructor(props) {
     this.table = props;
   }
 
-  all(){
+  all() {
     return knex(this.table).select()
   }
 
@@ -13,15 +14,19 @@ class Base {
     return knex(this.table).select().where(params)
   }
 
-  insert(params){
-    return knex(this.table).insert( params )
+  pagination(drift, size) {
+    return knex(this.table).select().limit(size).offset(drift)
   }
 
-  update(id, params ){
-    return knex(this.table).where('id', '=', id).update( params )
+  insert(params) {
+    return knex(this.table).insert(params)
   }
 
-  delete(id){
+  update(id, params) {
+    return knex(this.table).where('id', '=', id).update(params)
+  }
+
+  delete(id) {
     return knex(this.table).where('id', '=', id).del()
   }
 }

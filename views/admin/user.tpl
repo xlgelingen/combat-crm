@@ -4,6 +4,10 @@
   <title>用户列表</title>
 {% endblock %}
 
+{% block css %}
+  {{ super() }}
+  <link rel="stylesheet" href="/stylesheets/user.css">
+{% endblock %}
 
 {% block page_content %}  
     <div class="content-title">用户管理</div>
@@ -31,6 +35,12 @@
             </tr>
             {% endfor %}
         </table>
+        <div class="table-pagination" id="table-pagination">
+            <div class="pagination-index" id="pagination-index" data-index="{{pageInfo.index}}" hidden></div>
+            <a class="pagination-item" data-index="1" href="?page_index=1&page_size=20">1</a>
+            <a class="pagination-item" data-index="2" href="?page_index=2&page_size=20">2</a>
+            <a class="pagination-item" data-index="3" href="?page_index=3&page_size=20">3</a>
+        </div>
     </div>
 {% endblock %} 
 

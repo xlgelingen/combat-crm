@@ -10,13 +10,32 @@
 CREATE TABLE `clue_log` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `cule_id` int(11) DEFAULT NULL COMMENT '销售线索',
-  `created_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `content` varchar(225) DEFAULT NULL COMMENT '跟踪内容',
   `is_deleted` int(11) DEFAULT NULL COMMENT '是否删除',
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
-
+INSERT INTO `clue_log` (`id`, `cule_id`, `create_time`, `content`, `is_deleted`) VALUES
+(1, 5, '2024-01-17 12:39:38', '挂断了，顾客脾气有点大哦', NULL);
+INSERT INTO `clue_log` (`id`, `cule_id`, `create_time`, `content`, `is_deleted`) VALUES
+(2, 5, '2024-01-17 12:50:52', '又挂断了，顾客脾气有点大哦', NULL);
+INSERT INTO `clue_log` (`id`, `cule_id`, `create_time`, `content`, `is_deleted`) VALUES
+(3, 5, '2024-01-17 12:50:52', '又又挂断了，顾客脾气真的有点大哦', NULL);
+INSERT INTO `clue_log` (`id`, `cule_id`, `create_time`, `content`, `is_deleted`) VALUES
+(4, 5, '2024-01-17 12:50:52', '又又又挂断了，这个老六', NULL),
+(5, 5, '2024-01-17 12:58:27', '6666666', NULL),
+(6, 4, '2024-01-17 12:58:42', '1111111', NULL),
+(7, 4, '2024-01-17 14:43:09', '用户接电话了', NULL),
+(8, 1, '2024-01-17 15:32:26', '111', NULL),
+(9, 1, '2024-01-17 15:32:30', '222', NULL),
+(10, 3, '2024-01-17 16:44:07', '苏三苏三', NULL),
+(11, 3, '2024-01-17 16:44:21', '苏三苏三苏三', NULL),
+(12, 2, '2024-01-17 16:44:42', '顾客没接电话', NULL),
+(13, 2, '2024-01-17 16:44:50', '顾客没接电话', NULL),
+(14, 2, '2024-01-17 16:44:55', '顾客没接电话', NULL),
+(15, 3, '2024-01-17 16:45:02', '顾客没接电话', NULL),
+(16, 4, '2024-01-17 16:45:09', '顾客没接电话', NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

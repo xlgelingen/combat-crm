@@ -6,6 +6,11 @@
 # importent oprate:
 - "start": "node ./bin/www",
 - "dev": "nodemon ./bin/www"
+- "migrate:make": "knex migrate:make"
+- "migrate:latest": "knex migrate:latest",
+- "migrate:rollback": "knex migrate:rollback",
+- "migrate:rollback:all": "knex migrate:rollback --all",
+- "seed:run": "knex seed:run"
 
 # dependencies": 
 - "chokidar": "^3.5.3",
@@ -24,3 +29,7 @@
 - "nunjucks": "^3.2.4",
 - "serve-favicon": "^2.5.0",
 - "xss": "^1.0.14"
+
+# importent url:
+- http://localhost:3000/
+- http://localhost:3000/login
