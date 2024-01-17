@@ -60,37 +60,19 @@ const clue = {
     insert: async function (req, res, next) {
         let name = req.body.name;
         let phone = req.body.phone;
-        let password = req.body.password;
-        let role = req.body.role;
-        if (!name || !phone || !password || !role) {
+        let utm = req.body.utm;
+        if (!name || !phone || !utm) {
             res.json({ code: 0, data: 'params empty!' });
             return
         }
         try {
-            const clue = await Clue.insert({ name, phone, password, role });
+            const clue = await Clue.insert({ name, phone, utm });
             res.json({ code: 200, data: clue });
         } catch (e) {
             res.json({ code: 0, data: e });
         }
     },
 
-    update: async function (req, res, next) {
-        let name = req.body.name;
-        let phone = req.body.phone;
-        let password = req.body.password;
-        let role = req.body.role;
-        let id = req.body.id;
-        if (!name || !phone || !password || !role || !id) {
-            res.json({ code: 0, data: 'params empty!' });
-            return
-        }
-        try {
-            const clue = await Clue.update(id, { name, phone, password, role });
-            res.json({ code: 200, data: clue });
-        } catch (e) {
-            res.json({ code: 0, data: e });
-        }
-    },
 }
 
 module.exports = clue;

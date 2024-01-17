@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var userController = require('../controllers/user');
 var authController = require('../controllers/auth');
+var clueController = require('../controllers/clue');
+
 
 
 
@@ -13,6 +15,8 @@ router.get('/', function(req, res, next) {
 router.post('/user/create', userController.insert);
 router.put('/user/edit', userController.update);
 router.post('/login', authController.login);
+
+router.post("/clue", clueController.insert)
 
 
 module.exports = router;

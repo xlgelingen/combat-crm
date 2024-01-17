@@ -50,6 +50,9 @@ const PAGE = {
             },
             error: function (err) {
                 console.log(err);
+            },
+            complete: function () {
+                $("#form-button").attr("disabled", false);
             }
         })
     }
