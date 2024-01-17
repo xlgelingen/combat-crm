@@ -31,5 +31,5 @@
 - "xss": "^1.0.14"
 
 # importent url:
-- http://localhost:3000/
-- http://localhost:3000/login
+- 落地页：http://localhost:3000/
+- 登录页：http://localhost:3000/login
