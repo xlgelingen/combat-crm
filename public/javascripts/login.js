@@ -40,7 +40,7 @@ const PAGE = {
                 } else {
                     alert('登陆失败，没有此用户')
                     console.log(data);
-                    location.reload();
+                    // location.reload();
                 }
             },
             error: function (err) {

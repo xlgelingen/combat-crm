@@ -50,15 +50,15 @@ const PAGE = {
 
     addClueLog: function (e) {
         let content = $('#input-log').val();
-        let cule_id = $(e.target).data("id");
-        if (!content || !cule_id) {
+        let clue_id = $(e.target).data("id");
+        if (!content || !clue_id) {
             alert('缺少必要信息');
             return
         }
 
         $.ajax({
             url: '/api/clue_log',
-            data: { content, cule_id },
+            data: { content, clue_id },
             type: 'POST',
             beforeSend: function() {
                 $("#add-button").attr("disabled",true);

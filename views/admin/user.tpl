@@ -20,7 +20,6 @@
                 <th>姓名</th>
                 <th>电话</th>
                 <th>密码</th>
-                <th>角色</th>
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
@@ -29,7 +28,6 @@
                 <td>{{user.name}}</td>
                 <td>{{user.phone}}</td>
                 <td>{{user.password}}</td>
-                <td>{{user.roleName}}</td>
                 <td>{{user.create_time}}</td>
                 <td><a class="user-edit" data-id="{{user.id}}" href="/admin/user/{{user.id}}/edit">编辑</a></td>
             </tr>
@@ -45,7 +43,7 @@
 {% endblock %} 
 
 {% block js %}
-<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/javascripts/user.js"></script>
+    {{ super() }}
+    <script src="/javascripts/user.js"></script>
 {% endblock %}
 

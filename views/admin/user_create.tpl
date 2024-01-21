@@ -7,7 +7,7 @@
 {% block page_content %}  
     <div class="content-title">新增用户</div>
     <div class="content-control">
-      <a href="/admin/user">返回用户列表 >></a>
+      <a href="/admin/user?page_index=1&page_size=20">返回用户列表 >></a>
     </div>
     <div class="content-form">
       <div class="form-item">
@@ -35,7 +35,7 @@
 {% endblock %} 
 
 {% block js %}
-<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="/javascripts/user_create.js"></script>
+    {{ super() }}
+    <script src="/javascripts/user_create.js"></script>
 {% endblock %}
 

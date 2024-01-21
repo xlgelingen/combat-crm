@@ -13,7 +13,7 @@ const clueLog = {
             clue[0].create_time = moment(clue[0].create_time).format('YYYY-MM-DD HH:mm:ss');
             res.locals.clue = clue[0];
 
-            var clueLogs = await ClueLog.select({cule_id:id});
+            var clueLogs = await ClueLog.select({clue_id:id});
             res.locals.clueLogs = clueLogs.map(data=>{
                 data.create_time = moment(data.create_time).format('YYYY-MM-DD HH:mm:ss');
                 return data;
@@ -27,15 +27,16 @@ const clueLog = {
     },
 
     insert: async function (req, res, next) {
-        let cule_id = req.body.cule_id;
+        let clue_id = req.body.clue_id;
         let content = req.body.content;
-        if (!content || !cule_id) {
+        if (!content || !clue_id) {
             res.json({ code: 0, data: 'params empty!' });
             return
         }
         try {
-            const clueLog = await ClueLog.insert({ cule_id, content });
+            const clueLog = await ClueLog.insert({ clue_id, content });
             res.json({ code: 200, data: clueLog });
+            console.log(clueLog);
         } catch (e) {
             res.json({ code: 0, data: e });
         }

@@ -70,6 +70,7 @@ const clue = {
         try {
             const log = await Clue.update(id, {sale_name, status, remark});
             res.json({code:200, data:log});
+            console.log(log);
         } catch (e) {
             res.json({code:0, data:e});
         }

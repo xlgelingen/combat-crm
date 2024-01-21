@@ -3,6 +3,7 @@
 {% block css %}
   {{ super() }}
   <link rel="stylesheet" href="/stylesheets/admin_layout.css">
+  <link rel="stylesheet" href="/stylesheets/icon-font/iconfont.css">
 {% endblock %}
 
 {% block page_header %}
@@ -18,7 +19,19 @@
             <ul>
                 {% if userInfo.role == 1%}
                 <li>
-                    <a class="page-nav-item user-control" href="/admin/user">用户管理</a>
+                    <div class="right-control-box">
+                        <div class="page-nav-item right-control" id='right-control'>
+                            权限管理
+                            <span class='iconfont icon-xiangxiajiantou1' id='iconfont'></span>
+                        </div>
+                        <div class="sub-control-box" id='sub-control-box'>
+                            <a class="page-nav-item user-control sub-control" href="/admin/user?page_index=1&page_size=20">用户管理</a>
+                            <a class="page-nav-item role-control sub-control" href="/admin/role">角色管理</a>
+                        </div>
+                        
+                    </div>
+                    <div>
+                    
                 </li>
                 {% endif %}
                 
@@ -33,4 +46,9 @@
           {% block page_content %}  
           {% endblock %}        
     </div>
+{% endblock %}
+
+{% block js %}
+<script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/javascripts/admin_layout.js"></script>
 {% endblock %}

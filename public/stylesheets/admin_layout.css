@@ -41,7 +41,6 @@
     padding: 10px 20px;
     line-height: 40px;
     font-size: 14px;
-    color: #fff;
     color: #bfbfbf;
     text-decoration: none;
     /* border-bottom: 1px solid #e4e4e4; */
@@ -52,6 +51,27 @@
 
 .page-nav-item:hover{
     background: #99999988 ;
+}
+
+.right-control-box{
+    cursor: pointer;
+}
+.right-control{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* .sub-control-box{
+    display: none;
+} */
+
+.sub-control{
+    padding-left: 40px;
+}
+
+.iconfont.expand{
+    transform: rotateX(180deg);
 }
 
 .page-content{
@@ -105,11 +125,12 @@
     text-align: center;
 }
 
-.user-edit{
+.user-edit, .role-edit, .role-del{
     color: #000;
+    cursor: pointer;
 }
 
-.user-edit:hover, .content-control:hover{
+.user-edit:hover, .content-control:hover, .role-edit:hover, .role-del:hover{
     font-weight: 600;
 }
 
@@ -154,6 +175,10 @@
     font-weight: 600;
 }
 
+.form-item.permission-box{
+    padding: 10px 0;
+}
+
 
 .content-mainer {
     display: flex;
@@ -177,6 +202,12 @@
     border: 1px solid #e4e4e4;
     border-radius: 5px;
     font-size: 14px;
+}
+.form-textarea.role-describe{
+    width: 400px;
+}
+.form-textarea:focus{
+    border: 1px solid #000;
 }
 
 .log-section {

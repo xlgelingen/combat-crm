@@ -122,7 +122,7 @@
 {% endblock %} 
 
 {% block js %}
-    <script src="https://lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+    {{ super() }}
     <script src="/javascripts/clue_log.js"></script>
 {% endblock %}
 
